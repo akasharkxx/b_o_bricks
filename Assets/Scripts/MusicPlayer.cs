@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        GameObject.DontDestroyOnLoad(gameObject);   
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    static MusicPlayer instance = null;
+    void Start(){
+        if(instance != null){
+            Destroy(gameObject);
+            Debug.Log("Duplicate Destroyed");
+        }else{
+            instance = this;
+            GameObject.DontDestroyOnLoad(gameObject);
+        }
+           
     }
 }
