@@ -5,7 +5,11 @@ using UnityEngine;
 public class MusicPlayer : MonoBehaviour
 {
     static MusicPlayer instance = null;
-    void Start(){
+    // void Start(){
+    //     Debug.Log("Music player start" + GetInstanceID());       
+    // }
+    void Awake(){
+        //Debug.Log("Music player awake" + GetInstanceID()); 
         if(instance != null){
             Destroy(gameObject);
             Debug.Log("Duplicate Destroyed");
@@ -13,6 +17,5 @@ public class MusicPlayer : MonoBehaviour
             instance = this;
             GameObject.DontDestroyOnLoad(gameObject);
         }
-           
     }
 }
