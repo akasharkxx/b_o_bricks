@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 432440473}
   - component: {fileID: 432440475}
   - component: {fileID: 432440476}
+  - component: {fileID: 432440477}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -258,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432440472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 6, z: 1}
+  m_LocalPosition: {x: 8, y: 0.858, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -294,13 +295,26 @@ CircleCollider2D:
   m_GameObject: {fileID: 432440472}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 625bb4c2e93967e4482be866d737699c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!114 &432440477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432440472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f7862fae18b784d9c89cbfcf78aacd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddle: {fileID: 1872893272}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +457,7 @@ GameObject:
   - component: {fileID: 1872893268}
   - component: {fileID: 1872893270}
   - component: {fileID: 1872893271}
+  - component: {fileID: 1872893272}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -529,14 +544,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 0.41}
+    oldSize: {x: 1, y: 0.3203125}
     newSize: {x: 1.28, y: 0.41}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 0.41}
+  m_Size: {x: 1, y: 0.3203125}
   m_EdgeRadius: 0
 --- !u!50 &1872893271
 Rigidbody2D:
@@ -559,6 +574,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1872893272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872893267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbce2544aa2a6642a425edd47266ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1904621473
 GameObject:
   m_ObjectHideFlags: 0
