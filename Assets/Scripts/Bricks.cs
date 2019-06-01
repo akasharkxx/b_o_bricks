@@ -11,17 +11,22 @@ public class Bricks : MonoBehaviour
     void Start(){
         levelmanager = GameObject.FindObjectOfType<LevelManager>();
         timesHit = 0;
-    }
+    }//end of Start
 
     // Update is called once per frame
     void Update(){
         
-    }
-    void OnCollisionEnter2D (Collision2D collision){
+    }//end of Update
+    void OnCollisionEnter2D (Collision2D collision){        
+        //increment timesHit if ball hits the bricks    
         timesHit++;
-        SimulateWin();
-    }// TODO remove this function once we can win!!!
+        //Setting conditions for different blocks to be destroyed after certain hits
+        if(timesHit >= maxHits){
+            Destroy(gameObject);
+        }//end of if statements
+          
+    }//End of OnCollisionEnter2D
     void SimulateWin() {
         levelmanager.LoadNextLevel();
-    }
+    }//End of SimulateWin
 }
