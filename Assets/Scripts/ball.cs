@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ball : MonoBehaviour
 {
-    public Paddle paddle;
+    private Paddle paddle;
     private bool hasStarted = false;
     private Vector3 paddleToBallVector;
     // Start is called before the first frame update
     void Start() {
+        paddle = GameObject.FindObjectOfType<Paddle>();
         //getting the current tranforms of both ball and paddle
         paddleToBallVector = this.transform.position - paddle.transform.position;
     }//end of method start
