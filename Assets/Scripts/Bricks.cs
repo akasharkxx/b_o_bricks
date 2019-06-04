@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bricks : MonoBehaviour
 {
+    public Sprite[] hitSprites;
     public int maxHits;
     private LevelManager levelmanager;
     private int timesHit;
@@ -23,9 +24,17 @@ public class Bricks : MonoBehaviour
         //Setting conditions for different blocks to be destroyed after certain hits
         if(timesHit >= maxHits){
             Destroy(gameObject);
+        }else{
+            LoadSprites();
         }//end of if statements
           
     }//End of OnCollisionEnter2D
+
+    void LoadSprites(){
+         int spriteindex = timesHit - 1;
+         //the following line changes sprites from sprite renderer
+         this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteindex];
+    }
     void SimulateWin() {
         levelmanager.LoadNextLevel();
     }//End of SimulateWin
