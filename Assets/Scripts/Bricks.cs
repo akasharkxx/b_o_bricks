@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bricks : MonoBehaviour
 {
     public Sprite[] hitSprites;
-    public int maxHits;
     private LevelManager levelmanager;
     private int timesHit;
     // Start is called before the first frame update
@@ -19,21 +18,29 @@ public class Bricks : MonoBehaviour
         
     }//end of Update
     void OnCollisionEnter2D (Collision2D collision){        
+        bool isBreakable = (this.tag == "Breakable");
+        if(isBreakable){
+        HandleHits();
+        }
+    }//End of OnCollisionEnter2D
+
+    void HandleHits(){
         //increment timesHit if ball hits the bricks    
         timesHit++;
+        int maxHits = hitSprites.Length + 1;
         //Setting conditions for different blocks to be destroyed after certain hits
         if(timesHit >= maxHits){
             Destroy(gameObject);
         }else{
             LoadSprites();
         }//end of if statements
-          
-    }//End of OnCollisionEnter2D
-
+    }
     void LoadSprites(){
          int spriteindex = timesHit - 1;
          //the following line changes sprites from sprite renderer
+         if(hitSprites[spriteindex]){
          this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteindex];
+         }
     }
     void SimulateWin() {
         levelmanager.LoadNextLevel();
