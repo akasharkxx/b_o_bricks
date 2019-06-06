@@ -32,8 +32,13 @@ public class ball : MonoBehaviour
         }//end of if
     }//end of update method
     void OnCollisionEnter2D (Collision2D collision){
+        //for changing the velocity of the ball
+        Vector2 tweak = new Vector2 (Random.Range(0f,0.2f),Random.Range(0f,0.2f));
+
+        //for playing boing sound
         if(hasStarted){
             GetComponent<AudioSource>().Play();
+            this.GetComponent<Rigidbody2D>().velocity += tweak;
         }
     }
 }
